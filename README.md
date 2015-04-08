@@ -4,5 +4,5 @@ Algoritmo hecho en Python que dado un tema, lo busca en Twitter y baja los tweet
 Posteriormente mediante otra opción del programa, se posiciónan en un mapa de Google Maps.
 
 Realizado por:
-Álvaro Fernández Salado
+Álvaro Fernández Salado y
 David Jiménez Carmona
