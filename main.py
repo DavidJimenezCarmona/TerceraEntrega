@@ -9,9 +9,6 @@ GoogleMaps(app)
 
 from funciones import *
 import json
-from urllib import unquote
-from pprint import pprint
-
 
 def menu():
 	print "Selecciona una opción"
@@ -28,7 +25,7 @@ while seguir==True:
     if opcionMenu=="1":
         tema = raw_input("Por favor, introduzca el tema que quiere rastrear en Twitter >> ")
         twitter_api = oauth_login()
-        search_results = twitter_api.search.tweets(q=tema, geocode='40.4173175,-3.702233699999965,700km')
+        search_results = twitter_api.search.tweets(q=tema, geocode='40.4173175,-3.702233699999965,700km', result_type="recent")
         save_json("trends",search_results)
 
     elif opcionMenu=="2":
@@ -40,9 +37,7 @@ while seguir==True:
         for estado in data["statuses"]:
             if estado["coordinates"]!= None:
                 coordenada = estado["coordinates"]
-                xy=[coordenada.values()[1][1] , coordenada.values()[1][0]]
-                lista.append(xy)
-        pprint(lista)
+                lista.append([coordenada.values()[1][1] , coordenada.values()[1][0]])
 
         @app.route("/")
         def mapview():
@@ -53,12 +48,14 @@ while seguir==True:
                 markers=lista,
                 style="height:800px;width:800px;margin:0;"
             )
+
             return render_template('template2.html', mymap=mymap)
 
         if __name__ == "__main__":
-            app.run(debug=True)
-
+            app.run(debug=False)
 
     elif opcionMenu=="9":
         print "Gracias por usar este script"
         seguir = False
+
+
