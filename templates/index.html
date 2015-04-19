@@ -1,1 +1,25 @@
-<h1>Hello world</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<title>Busqueda Twitter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <br><br><br><br><br><br><br><br><br><br>
+            <div class="col-md-5 col-md-offset-4">
+                <form action="/buscar" method="POST">
+                    <h1>Término de la busqueda:</h1><br>
+                    <input type="text" name="busqueda">
+                    <input type="submit" value="Buscar">
+                </form>
+                </br>
+                <form action="/anterior" method="POST">
+                    <input type="submit" value="Visualizar Busqueda anterior">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
